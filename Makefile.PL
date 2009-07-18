@@ -12,6 +12,7 @@ WriteMakefile(
 	PL_FILES     => { },
 	PREREQ_PM    => {
 		'MooseX::Types' => 0,
+		'MooseX::Types::Moose' => 0,
 		'Authen::Passphrase' => 0,
 		'Test::use::ok' => 0,
 	},

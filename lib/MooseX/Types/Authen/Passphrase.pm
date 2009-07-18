@@ -10,15 +10,17 @@ our $VERSION = "0.01";
 use Authen::Passphrase;
 use Authen::Passphrase::RejectAll;
 
+use MooseX::Types::Moose qw(Str Undef);
+
 use MooseX::Types -declare => [qw(Passphrase)];
 
 class_type "Authen::Passphrase";
 class_type Passphrase, { class => "Authen::Passphrase" };
 
 foreach my $type ( "Authen::Passphrase", Passphrase ) {
-	coerce( $type,
-		from "Undef", via { Authen::Passphrase::RejectAll->new },
-		from "Str", via {
+    coerce( $type,
+		from Undef, via { Authen::Passphrase::RejectAll->new },
+		from Str, via {
 			if ( /^\{/ ) {
 				return Authen::Passphrase->from_rfc2307($_);
 			} else {
