@@ -5,7 +5,7 @@ package MooseX::Types::Authen::Passphrase;
 use strict;
 use warnings;
 
-our $VERSION = "0.01";
+our $VERSION = "0.02";
 
 use Authen::Passphrase;
 use Authen::Passphrase::RejectAll;
